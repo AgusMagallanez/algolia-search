@@ -1,0 +1,18 @@
+{
+  "name": "tablas-y-modelos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "algoliasearch": "^4.22.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.0.3",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.35.2"
+  },
+  "scripts": {
+    "dev": "nodemon --watch ./index.ts --exec ts-node ./index.ts"
+  }
+}
