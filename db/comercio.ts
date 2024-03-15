@@ -7,7 +7,8 @@ Comercio.init(
   {
     nombre: DataTypes.STRING,
     rubro: DataTypes.STRING,
-    adress: DataTypes.FLOAT,
+    lat: DataTypes.FLOAT,
+    lng: DataTypes.FLOAT,
   },
   { sequelize, modelName: "comercio" }
 );
