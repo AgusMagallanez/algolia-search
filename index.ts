@@ -72,12 +72,13 @@ app.get("/comercios/:id", async (req, res) => {
 });
 
 //*Obtener comercios cerca de determinada localización
-app.get("/comercios-cerca-de?lat&lng", async (req, res) => {
+app.get("/comercios-cerca-de", async (req, res) => {
   const { lat, lng } = req.query;
-  index.search("", {
+  const { hits } = await index.search("", {
     aroundLatLng: [lat, lng].join(","),
+    // aroundRadius: 10000,
   });
-  res.json({});
+  res.json(hits);
 });
 
 //función auxiliar para transformar del formato body al formato de algolia
@@ -111,6 +112,8 @@ app.put("/comercios/:id", async (req, res) => {
   const algoliaRes = await index.partialUpdateObject(indexItem);
   res.json(comercio);
 });
+
+app.get("*", express.static(__dirname + "/public"));
 
 app.listen(port, () => {
   console.log("servidor corriendo en el puerto ", port);
